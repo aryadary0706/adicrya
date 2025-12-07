@@ -4,7 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useItineraryStore } from '@/store/ItinerarySystem';
 import { Itinerary } from '@/store/types';
-import { MapPin, Calendar, ArrowRight, Trash2 } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, Trash2, ClipboardCheck } from 'lucide-react';
 
 const SavedPage: React.FC = () => {
   const router = useRouter();
@@ -38,12 +38,17 @@ const SavedPage: React.FC = () => {
           {savedItineraries.map((itinerary) => (
             <div key={itinerary.id} className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-all flex flex-col h-full">
               <div className="h-2 bg-emerald-500 w-full"></div>
-              <div className="p-6 flex-grow">
+              <div className="p-6 grow">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-xl font-bold text-slate-900 line-clamp-1">{itinerary.destination}</h3>
+                  <div className='flex gap-2 '>
                   <button onClick={(e) => { e.stopPropagation(); deleteItinerary(itinerary.id); }} className="text-slate-300 hover:text-red-500 transition-colors">
-                     <Trash2 className="w-4 h-4" />
+                     <Trash2 className="w-5 h-5" />
                   </button>
+                  <button onClick={(e) => { e.stopPropagation(); deleteItinerary(itinerary.id); }} className="text-slate-300 hover:text-green-600 transition-colors">
+                     <ClipboardCheck className="w-5 h-5" />
+                  </button>
+                  </div>
                 </div>
                 <h4 className="text-sm font-medium text-emerald-600 mb-3 line-clamp-1">{itinerary.title}</h4>
                 <p className="text-slate-500 text-sm mb-4 line-clamp-2">{itinerary.summary}</p>

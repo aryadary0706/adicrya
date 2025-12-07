@@ -39,7 +39,7 @@ const itinerarySchema: Schema = {
     localEtiquette: { 
       type: Type.ARRAY, 
       items: { type: Type.STRING },
-      description: "List of 3-5 important local cultural etiquette rules or taboos."
+      description: "List max. 3 important local cultural etiquette rules or taboos."
     },
     seasonalEvents: {
       type: Type.ARRAY,

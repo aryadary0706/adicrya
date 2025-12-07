@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { useItineraryStore } from '@/store/ItinerarySystem';
 import { Pace, TravelMood } from '@/store/types';
+import { toast } from 'sonner';
 
 function InputField({
   id,
@@ -78,7 +79,7 @@ function DateRangeInput({
 function PeopleInput({ value, onChange }: any) {
   return (
     <div>
-      <label className="block text-sm font-medium text-slate-700 mb-2 flex items-center gap-2">
+      <label className="flex text-sm font-medium text-slate-700 mb-2 flex items-center gap-2">
         <Users className="w-4 h-4 text-emerald-600" /> Travelers
       </label>
       <input
@@ -199,6 +200,12 @@ export default function PlanPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (originCity === city){
+    toast.error("You can’t travel to the same city, genius :P");
+    return;
+  }
+
     setSearchParams({ 
       originCity,
       city, 

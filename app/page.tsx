@@ -8,7 +8,7 @@ export default function LandingPage(){
   return(
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative bg-emerald-900 text-white overflow-hidden">
+      <section className="relative bg-emerald-900 text-white overflow-hidden" id="Banner">
         <div className="absolute inset-0 opacity-30 bg-[url('https://picsum.photos/1920/1080?grayscale')] bg-cover bg-center"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex flex-col items-center text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
@@ -27,9 +27,9 @@ export default function LandingPage(){
       </section>
 
       {/* Value Props */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-slate-50" id="Benefit">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-15">
             <h2 className="text-base text-emerald-600 font-semibold tracking-wide uppercase">Why EcoTravel?</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-slate-900 sm:text-4xl">
               More than just a schedule.
@@ -41,16 +41,19 @@ export default function LandingPage(){
               icon={<Zap className="h-8 w-8 text-amber-500" />}
               title="Auto-Generated Itineraries"
               description="Input your city and preferences, and get a complete plan in seconds. No more hours of research."
+              color="amber"
             />
             <FeatureCard 
               icon={<Clock className="h-8 w-8 text-blue-500" />}
               title="Smart Time Blocking"
               description="Realistic routing that accounts for travel time and your preferred pace. No rushing."
+              color="blue"
             />
             <FeatureCard 
               icon={<Globe className="h-8 w-8 text-emerald-500" />}
               title="Local & Sustainable"
               description="Learn local etiquette and find eco-friendly spots to support the local community (SDG 11)."
+              color="emerald"
             />
           </div>
         </div>
@@ -61,11 +64,11 @@ export default function LandingPage(){
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-slate-900 mb-12">How it Works</h2>
           <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
-             <StepCards Step="1" text="Choose Destination" />
+             <StepCards Step="1" text="Click 'Plan Trip'" />
              <div className="hidden md:block w-16 h-1 bg-slate-200"></div>
-             <StepCards Step="2" text="Set Preferences" />
+             <StepCards Step="2" text="Type your plan" />
              <div className="hidden md:block w-16 h-1 bg-slate-200"></div>
-             <StepCards Step="3" text="Get Itinerary" />
+             <StepCards Step="3" text="Get it Done" />
           </div>
         </div>
       </section>
