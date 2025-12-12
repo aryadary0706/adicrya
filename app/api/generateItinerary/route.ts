@@ -2,7 +2,7 @@ import { GoogleGenAI, Type, Schema } from "@google/genai";
 import { SearchParams, Itinerary } from "@/store/types";
 import { NextRequest, NextResponse } from "next/server";
 
-const apiKey = process.env.GOOGLE_AI_KEY;
+const apiKey = process.env.NEXT_PUBLIC_GOOGLE_AI_KEY;
 
 // Define the response schema for strict JSON output
 const activitySchema: Schema = {
@@ -110,7 +110,8 @@ const generateItinerary = async (params: SearchParams): Promise<Itinerary> => {
     2. Smart Time Blocking: Ensure realistic travel times between places given the city traffic and group size.
     3. Sustainable Tourism: Emphasize eco-friendly spots, walking tours, public transport, and local businesses (SDG 11).
     4. Include "Eco Tips" for activities where relevant (e.g., "Use public transport here", "No flash photography").
-    5. Adjust to the user ${params.describe}
+    5. Adjust to the user ${params.describe}, you can add the activity on schedule based on ${params.describe}. ex: if user want to visit the museum, you make an activity to visit a museum at some day
+	6. ${params.describe} also can describe what user want to experience on the visit. Make an activity based on ${params.describe} if the user has written it.
     6. Provide strictly structured JSON.
   `;
 
