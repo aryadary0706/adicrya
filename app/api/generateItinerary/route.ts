@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { GoogleGenAI, Type, Schema } from "@google/genai";
 import { SearchParams, Itinerary } from "@/store/types";
 import { NextRequest, NextResponse } from "next/server";
