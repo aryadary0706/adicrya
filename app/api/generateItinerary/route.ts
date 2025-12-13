@@ -5,7 +5,7 @@ import { SearchParams, Itinerary } from "@/store/types";
 import { NextRequest, NextResponse } from "next/server";
 
 const apiKey = process.env.GOOGLE_AI_KEY;
-
+console.log("GOOGLE_AI_KEY:", process.env.GOOGLE_AI_KEY ? "ADA" : "TIDAK");
 if (!apiKey) {
   throw new Error("API KEY tidak terbaca");
 }
