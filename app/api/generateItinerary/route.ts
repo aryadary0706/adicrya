@@ -2,7 +2,11 @@ import { GoogleGenAI, Type, Schema } from "@google/genai";
 import { SearchParams, Itinerary } from "@/store/types";
 import { NextRequest, NextResponse } from "next/server";
 
-const apiKey = process.env.NEXT_PUBLIC_GOOGLE_AI_KEY;
+const apiKey = process.env.GOOGLE_AI_KEY;
+
+if (!apiKey) {
+  throw new Error("API KEY tidak terbaca");
+}
 
 // Define the response schema for strict JSON output
 const activitySchema: Schema = {
